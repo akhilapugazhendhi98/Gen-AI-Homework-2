@@ -58,7 +58,7 @@ No decision made yet on post-launch support staffing.
 # 4. Initialize the Gemini model
 # ─────────────────────────────────────────────
 model = genai.GenerativeModel(
-    model_name="gemini-2.0-flash-lite",
+    model_name="gemini-2.0-flash",
     system_instruction=SYSTEM_PROMPT
 )
 
