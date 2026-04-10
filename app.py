@@ -1,5 +1,5 @@
 # /// script
-# dependencies = ["openai", "python-dotenv"]
+# dependencies = ["openai"]
 # ///
 
 # app.py
@@ -9,16 +9,13 @@
 
 import os
 from openai import OpenAI
-from dotenv import load_dotenv
 
 # ─────────────────────────────────────────────
-# 1. Load API key from .env file
+# 1. Load API key from environment variable
 # ─────────────────────────────────────────────
-load_dotenv()  # reads the .env file and loads variables into the environment
-
 api_key = os.environ.get("OPENAI_API_KEY")
 if not api_key:
-    raise ValueError("OPENAI_API_KEY not found. Please add it to your .env file.")
+    raise ValueError("OPENAI_API_KEY environment variable is not set. Please set it before running.")
 
 client = OpenAI(api_key=api_key)
 
