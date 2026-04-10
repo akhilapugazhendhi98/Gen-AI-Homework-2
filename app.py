@@ -1,18 +1,23 @@
+# /// script
+# dependencies = ["openai"]
+# ///
+
 # app.py
 # Homework 2 — Meeting Notes to Structured Summary
-# Uses the Gemini API to convert raw meeting notes into a structured summary and action items.
+# Uses the OpenAI API to convert raw meeting notes into a structured summary and action items.
+# Run with: uv run app.py
 
 import os
-import google.generativeai as genai
+from openai import OpenAI
 
 # ─────────────────────────────────────────────
 # 1. Load API key from environment variable
 # ─────────────────────────────────────────────
-api_key = os.environ.get("GEMINI_API_KEY")
+api_key = os.environ.get("OPENAI_API_KEY")
 if not api_key:
-    raise ValueError("GEMINI_API_KEY environment variable is not set. Please set it before running.")
+    raise ValueError("OPENAI_API_KEY environment variable is not set. Please set it before running.")
 
-genai.configure(api_key=api_key)
+client = OpenAI(api_key=api_key)
 
 # ─────────────────────────────────────────────
 # 2. System prompt — tells the model what to do
@@ -55,15 +60,7 @@ No decision made yet on post-launch support staffing.
 """
 
 # ─────────────────────────────────────────────
-# 4. Initialize the Gemini model
-# ─────────────────────────────────────────────
-model = genai.GenerativeModel(
-    model_name="gemini-2.0-flash",
-    system_instruction=SYSTEM_PROMPT
-)
-
-# ─────────────────────────────────────────────
-# 5. Print the input
+# 4. Print the input
 # ─────────────────────────────────────────────
 print("=" * 40)
 print("=== INPUT ===")
@@ -71,13 +68,20 @@ print("=" * 40)
 print(MEETING_NOTES.strip())
 
 # ─────────────────────────────────────────────
-# 6. Make the API call
+# 5. Make the API call
 # ─────────────────────────────────────────────
-response = model.generate_content(MEETING_NOTES)
-output_text = response.text
+response = client.chat.completions.create(
+    model="gpt-4.1-mini",
+    messages=[
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": MEETING_NOTES}
+    ]
+)
+
+output_text = response.choices[0].message.content
 
 # ─────────────────────────────────────────────
-# 7. Print the output
+# 6. Print the output
 # ─────────────────────────────────────────────
 print("\n" + "=" * 40)
 print("=== OUTPUT ===")
@@ -85,7 +89,7 @@ print("=" * 40)
 print(output_text)
 
 # ─────────────────────────────────────────────
-# 8. Save the output to a file
+# 7. Save the output to a file
 # ─────────────────────────────────────────────
 with open("output.txt", "w") as f:
     f.write("=== INPUT ===\n")
