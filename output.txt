@@ -1,0 +1,37 @@
+=== INPUT ===
+Discussed Q3 product launch timeline.
+Marketing team to prepare campaign assets by end of May.
+John to coordinate with the design team on visuals.
+Launch is planned for June 15.
+Budget for ads still needs approval from finance.
+Sarah will follow up with the finance team next week.
+No decision made yet on post-launch support staffing.
+
+=== OUTPUT ===
+Meeting Summary:
+- Reviewed Q3 product launch timeline.
+- Marketing team assigned to prepare campaign assets by end of May.
+- John to coordinate with design team on visuals for the campaign.
+- Launch date set for June 15.
+- Advertising budget pending approval from finance.
+- Sarah to follow up with finance team next week regarding budget approval.
+- Post-launch support staffing remains undecided.
+
+Action Items:
+1. Prepare campaign assets:
+   Owner: Marketing team
+   Deadline: End of May
+
+2. Coordinate visuals with design team:
+   Owner: John
+   Deadline: Not specified
+
+3. Follow up with finance on budget approval:
+   Owner: Sarah
+   Deadline: Next week
+
+Pending Decisions:
+- Approval of advertising budget.
+- Post-launch support staffing plan.
+
+Note: As budget approval involves finance and resource allocation, and staffing decisions impact operations, human review is recommended.
