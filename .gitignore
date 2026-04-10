@@ -1,0 +1,9 @@
+# Environment variables — never commit your real API key
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Output file
+output.txt
