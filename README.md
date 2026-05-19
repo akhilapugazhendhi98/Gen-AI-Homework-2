@@ -1,5 +1,3 @@
-Video Walkthrough: https://youtu.be/T4T7Ei7zDrc
-
 # Gen-AI Homework 2
 
 ## Overview
